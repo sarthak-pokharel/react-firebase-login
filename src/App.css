@@ -1,7 +1,15 @@
 .app {
   width: 100%;
   height: 100%;
+}
+
+
+.cards-container {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 65% 35%;
 }
-
+.cards-container.loggedin {
+  display: block;
+}

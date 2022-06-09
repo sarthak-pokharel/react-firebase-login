@@ -38,6 +38,10 @@
     border-radius: d 0px 0px 15%;
     min-width: 0.35vw;
 }
+.hidden{
+    display: none;
+}
+
 
 .input-boxes {
     display: flex;
@@ -85,4 +89,27 @@
 }
 .login-btn-cont.google button {
     width: 100%;
+}
+
+.login-error {
+    font-size: 0.9em;
+    color: red;
+    font-weight: 500;
+}
+
+
+
+
+.login-btn-cont.forgot {
+    width: 100%;
+    justify-content: center;
+}
+.login-btn.forgot {
+    width: 100%;
+    justify-content: center;
+    background: transparent;
+    color: #3f51b5;
+}
+.login-btn.forgot:hover {
+    text-decoration: underline;
 }

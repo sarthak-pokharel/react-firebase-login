@@ -33,13 +33,21 @@ let loginHandler = new LoginHandler();
 function LoginCard({ userNameManager }) {
   let userDetails = useContext(UserDataManagerContext);
   let setUserDetails = useContext(UserDataManagerContextDispatch);
-  return (<div className='login-card'>
+  loginHandler.userDetails = userDetails;
+  loginHandler.setUserDetails = setUserDetails;
+  return (<div className={'login-card '+(userDetails.loggedIn?"hidden":"")}>
     <div className="title">
       Login
     </div>
     <div className="input-boxes">
       <InputBox autoFocus={true} label="username" icon={usernameIcon} value={userDetails.username} setValue={e => setUserDetails({...userDetails, username: e.target.value })} />
       <InputBox label="password" type="password" icon={passwordIcon} value={userDetails.password} setValue={e => setUserDetails({...userDetails, password: e.target.value })} />
+      {userDetails.loginError==null?"": (<div className='login-error'>
+        {userDetails.loginError}
+      </div>)}
+      <div className="login-btn-cont forgot">
+        <button className='login-btn forgot' onClick={()=>loginHandler.resetPassword(userDetails.username)}>Forgot password</button>
+      </div>
       <div className="login-btn-cont">
         <button className='login-btn' onClick={(e)=>loginHandler.login(userDetails.username,userDetails.password )}>
           Log-in
